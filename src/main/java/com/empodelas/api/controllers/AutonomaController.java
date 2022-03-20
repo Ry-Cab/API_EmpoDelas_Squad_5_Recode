@@ -21,7 +21,7 @@ import com.empodelas.api.model.Autonoma;
 import com.empodelas.api.repository.AutonomaRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "*")
 @RequestMapping("/autonoma")
 public class AutonomaController {
 

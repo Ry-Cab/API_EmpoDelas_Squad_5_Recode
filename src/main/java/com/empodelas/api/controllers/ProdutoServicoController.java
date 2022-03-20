@@ -21,7 +21,7 @@ import com.empodelas.api.model.ProdutoServico;
 import com.empodelas.api.repository.ProdutoServicoRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "*")
 @RequestMapping("/produto_servico")
 public class ProdutoServicoController {
 	

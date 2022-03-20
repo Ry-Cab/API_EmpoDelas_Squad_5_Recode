@@ -21,7 +21,7 @@ import com.empodelas.api.repository.AfiliadaRepository;
 import com.empodelas.api.model.Afiliada;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "*")
 @RequestMapping("/afiliada")
 public class AfiliadaController {
 
