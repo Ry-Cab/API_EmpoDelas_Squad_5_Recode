@@ -14,7 +14,6 @@ public class Afiliacao {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private Long id_afiliacao;
 	
-	
 	private String codigo_produtoServico;
 	private String descricao_afiliacao;
 	

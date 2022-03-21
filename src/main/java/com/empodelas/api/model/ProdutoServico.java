@@ -25,7 +25,8 @@ public class ProdutoServico {
 	private String nome_produtoServico;
 	private String descricao_produtoServico;
 	private String imagemURL_produtoServico;
-	private float preco_produtoServico;
+	private String linkURL_produtoServico;
+	private double preco_produtoServico;
 	
 	@ManyToOne
 	@JoinColumn(name = "autonoma_id_autonoma")
@@ -35,6 +36,14 @@ public class ProdutoServico {
 	@OneToMany(mappedBy = "produtoServico")
 	private List<Afiliacao> afiliacao = new ArrayList<Afiliacao>();
 	
+	
+	public String getLinkURL_produtoServico() {
+		return linkURL_produtoServico;
+	}
+	
+	public void setLinkURL_produtoServico(String linkURL_produtoServico) {
+		this.linkURL_produtoServico = linkURL_produtoServico;
+	}
 	
 	public Autonoma getAutonoma() {
 		return autonoma;
@@ -82,10 +91,10 @@ public class ProdutoServico {
 	public void setImagemURL_produtoServico(String imagemURL_produtoServico) {
 		this.imagemURL_produtoServico = imagemURL_produtoServico;
 	}
-	public float getPreco_produtoServico() {
+	public double getPreco_produtoServico() {
 		return preco_produtoServico;
 	}
-	public void setPreco_produtoServico(float preco_produtoServico) {
+	public void setPreco_produtoServico(double preco_produtoServico) {
 		this.preco_produtoServico = preco_produtoServico;
 	}
 	

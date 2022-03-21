@@ -28,20 +28,20 @@ public class ProdutoServicoController {
 	@Autowired
 	private ProdutoServicoRepository produtoServicoRepo;
 	
-	//Listando employees 
+	
 	@GetMapping("/")
 	public List<ProdutoServico> getAllProdutoServico(){
 		return produtoServicoRepo.findAll();
 	}
 	
-	//Criando Employee
+	
 	
 	@PostMapping("/")
 	public ProdutoServico createProdutoServico(@RequestBody ProdutoServico produtoServico) {
 		return produtoServicoRepo.save(produtoServico);
 	}
 	
-	//Obtendo o employee por Id
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<ProdutoServico> getProdutoServicoById(@PathVariable Long id_produtoServico) {
 		ProdutoServico produtoServico = produtoServicoRepo.findById(id_produtoServico)
@@ -49,12 +49,11 @@ public class ProdutoServicoController {
 		return ResponseEntity.ok(produtoServico);
 	}
 	
-	//Atualizando o Employee
+	
 	@PutMapping("/{id}")
 	public ResponseEntity<ProdutoServico> updateProdutoServico(@PathVariable Long id_produtoServico, @RequestBody ProdutoServico produtoServicoDetails){
 		ProdutoServico produtoServico = produtoServicoRepo.findById(id_produtoServico)
 				.orElseThrow(() -> new ResourceNotFoundException("Produto or Serviço not exist with id: " + id_produtoServico));
-		
 		
 		produtoServico.setNome_produtoServico(produtoServicoDetails.getNome_produtoServico());
 		produtoServico.setDescricao_produtoServico(produtoServicoDetails.getDescricao_produtoServico());
@@ -62,14 +61,14 @@ public class ProdutoServicoController {
 		produtoServico.setTipo_produtoServico(produtoServicoDetails.getTipo_produtoServico());
 		produtoServico.setCodigo_produtoServico(produtoServicoDetails.getCodigo_produtoServico());
 		produtoServico.setImagemURL_produtoServico(produtoServicoDetails.getImagemURL_produtoServico());
-		
+		produtoServico.setLinkURL_produtoServico(produtoServicoDetails.getLinkURL_produtoServico());
 		
 		ProdutoServico updatedProdutoServico = produtoServicoRepo.save(produtoServico);
 		
 		return ResponseEntity.ok(updatedProdutoServico);
 	}
 	
-	@DeleteMapping("/employees/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteProdutoServico(@PathVariable Long id_produtoServico){
 		ProdutoServico produtoServico = produtoServicoRepo.findById(id_produtoServico)
 				.orElseThrow(() -> new ResourceNotFoundException("Produto or Serviço not exist with id: " + id_produtoServico));

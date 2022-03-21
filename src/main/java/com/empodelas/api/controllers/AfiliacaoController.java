@@ -28,20 +28,20 @@ public class AfiliacaoController {
     @Autowired
 	private AfiliacaoRepository afiliacaoRepo;
 	
-	//Listando employees 
+	
 	@GetMapping("/")
 	public List<Afiliacao> getAllAfiliacao(){
 		return afiliacaoRepo.findAll();
 	}
 	
-	//Criando Employee
+	
 	
 	@PostMapping("/")
 	public Afiliacao createAfiliacao(@RequestBody Afiliacao afiliacao) {
 		return afiliacaoRepo.save(afiliacao);
 	}
 	
-	//Obtendo o employee por Id
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Afiliacao> getAfiliacaoById(@PathVariable Long id_afiliacao) {
 		Afiliacao afiliacao = afiliacaoRepo.findById(id_afiliacao)
@@ -49,13 +49,11 @@ public class AfiliacaoController {
 		return ResponseEntity.ok(afiliacao);
 	}
 	
-	//Atualizando o Employee
+	
 	@PutMapping("/{id}")
 	public ResponseEntity<Afiliacao> updateAfiliacao(@PathVariable Long id_afiliacao, @RequestBody Afiliacao afiliacaoDetails){
 		Afiliacao afiliacao = afiliacaoRepo.findById(id_afiliacao)
 				.orElseThrow(() -> new ResourceNotFoundException("Afiliação not exist with id: " + id_afiliacao));
-		
-		
 		
 		
 		Afiliacao updatedAfiliacao = afiliacaoRepo.save(afiliacao);

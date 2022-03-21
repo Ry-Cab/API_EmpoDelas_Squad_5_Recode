@@ -28,20 +28,20 @@ public class AfiliadaController {
     @Autowired
 	private AfiliadaRepository afiliadaRepo;
 	
-	//Listando employees 
+	
 	@GetMapping("/")
 	public List<Afiliada> getAllAfiliada(){
 		return afiliadaRepo.findAll();
 	}
 	
-	//Criando Employee
+	
 	
 	@PostMapping("/")
 	public Afiliada createAfiliada(@RequestBody Afiliada afiliada) {
 		return afiliadaRepo.save(afiliada);
 	}
 	
-	//Obtendo o employee por Id
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Afiliada> getAfiliadaById(@PathVariable Long id_afiliada) {
 		Afiliada afiliada = afiliadaRepo.findById(id_afiliada)
@@ -49,7 +49,7 @@ public class AfiliadaController {
 		return ResponseEntity.ok(afiliada);
 	}
 	
-	//Atualizando o Employee
+	
 	@PutMapping("/{id}")
 	public ResponseEntity<Afiliada> updateAfiliada(@PathVariable Long id_afiliada, @RequestBody Afiliada afiliadaDetails){
 		Afiliada afiliada = afiliadaRepo.findById(id_afiliada)

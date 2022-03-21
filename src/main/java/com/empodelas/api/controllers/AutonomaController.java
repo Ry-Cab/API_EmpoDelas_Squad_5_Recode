@@ -28,20 +28,20 @@ public class AutonomaController {
 	@Autowired
 	private AutonomaRepository autonomaRepo;
 	
-	//Listando employees 
+	
 	@GetMapping("/")
 	public List<Autonoma> getAllAutonoma(){
 		return autonomaRepo.findAll();
 	}
 	
-	//Criando Employee
+	
 	
 	@PostMapping("/")
 	public Autonoma createAutonoma(@RequestBody Autonoma autonoma) {
 		return autonomaRepo.save(autonoma);
 	}
 	
-	//Obtendo o employee por Id
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Autonoma> getAutonomaById(@PathVariable Long id_autonoma) {
 		Autonoma autonoma = autonomaRepo.findById(id_autonoma)
@@ -49,7 +49,7 @@ public class AutonomaController {
 		return ResponseEntity.ok(autonoma);
 	}
 	
-	//Atualizando o Employee
+	
 	@PutMapping("/{id}")
 	public ResponseEntity<Autonoma> updateAutonoma(@PathVariable Long id_autonoma, @RequestBody Autonoma autonomaDetails){
 		Autonoma autonoma = autonomaRepo.findById(id_autonoma)
